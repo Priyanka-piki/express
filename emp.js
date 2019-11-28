@@ -26,26 +26,11 @@ router.get("/",(request, response)=>{
     });
 });
 
-router.get("/:No",(request, response)=>{
-    var queryText = `select * from Employee where No = ${request.params.No}`;
-    connection.query(queryText,(err, result)=>{
-        if(err==null)
-            {
-                response.send(JSON.stringify(result));
-            }
-            else{
-                response.send(JSON.stringify(err));
-            }
-    });
-});
 
 
 router.post("/",(request, response)=>{
-    var validationResult = Validate(request);
 
-    //console.log(validationResult.error);
-    if(validationResult.error==null)
-    {
+
             var No = request.body.No;
             var Name = request.body.Name;
             var Age = request.body.Age;
@@ -60,15 +45,5 @@ router.post("/",(request, response)=>{
                     response.send(JSON.stringify(err));
                 }
         });
-    }
-    else{
-        response.send(JSON.stringify(validationResult.error));
-    }
-});
-
-
-
-
-module.exports = router;
-
-
+    });
+    
