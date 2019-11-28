@@ -1,0 +1,7 @@
+{
+    "port": 7676,
+    "host": "localhost",
+    "database": "Meanstack",
+    "user": "root",
+    "password": "manager"
+}
